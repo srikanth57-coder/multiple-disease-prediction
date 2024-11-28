@@ -6,7 +6,7 @@ from streamlit_option_menu import option_menu
 
 loaded_model=pickle.load(open('trained_model.sav','rb'))
 
-heart_disease_model=pickle.load(open('trained_heart_model.sav",'rb'))
+heart_disease_model=pickle.load(open('trained_heart_model.sav','rb'))
 
 
 
