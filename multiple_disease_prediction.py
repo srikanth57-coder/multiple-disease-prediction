@@ -40,7 +40,7 @@ if (selected == 'Diabetes Prediction'):
     diagnosis= ''
     
     if st.button('diabetes final results'):
-        predict=loaded_model.predict([Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age])
+        predict=loaded_model.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
         if predict==0:
             diagnosis='no diabetes'
         else:
@@ -81,7 +81,7 @@ if (selected == 'Heart Disease Prediction'):
     diagnosis= ''
     
     if st.button('heart disease final results'):
-        heart_predict=heart_disease_model.predict([trestbps,chol,thalach,age,sex, cp, fbs,restecg,exang,oldpeak,slope,ca,thal])
+        heart_predict=heart_disease_model.predict([[trestbps,chol,thalach,age,sex, cp, fbs,restecg,exang,oldpeak,slope,ca,thal]])
         if heart_predict==0:
             diagnosis='no heart disease'
         else:
