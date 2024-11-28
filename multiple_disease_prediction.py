@@ -3,6 +3,15 @@
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
+from sklearn.preprocessing import StandardScaler
+
+# Assuming you've already fit a scaler to your training data
+scaler = StandardScaler()
+scaled_input = scaler.transform([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+
+# Make prediction using scaled input
+predict = loaded_model.predict(scaled_input)
+
 
 loaded_model=pickle.load(open('trained_model.sav','rb'))
 
@@ -40,7 +49,9 @@ if (selected == 'Diabetes Prediction'):
     diagnosis= ''
     
     if st.button('diabetes final results'):
-        predict=loaded_model.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
+        scaler = StandardScaler()
+        scaled_input = scaler.transform([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
+        predict = loaded_model.predict(scaled_input)
         if predict==0:
             diagnosis='no diabetes'
         else:
